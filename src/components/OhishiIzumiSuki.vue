@@ -37,7 +37,7 @@ export default {
       return this.insertNBSP(text.slice(1), result)
     },
     setUrl(text) {
-      this.url = 'https://twitter.com/intent/tweet?text=' + encodeURI(this.insertNBSP(text))
+      this.url = "https://twitter.com/intent/tweet?text=" + encodeURI(this.insertNBSP(text) + "\nhttps://ohishi-izumi-suki.herokuapp.com")
     },
   },
 }

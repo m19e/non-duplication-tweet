@@ -40,7 +40,9 @@ export default {
       return encodeURIComponent(text).replace(/%../g,"x").length
     },
     setUrl(text) {
-      this.url = "https://twitter.com/intent/tweet?text=" + encodeURI(this.insertNBSP(text) + "\nhttps://ohishi-izumi-suki.herokuapp.com")
+      let content = this.insertNBSP(text)
+      this.url = "https://twitter.com/intent/tweet?text=" + encodeURI(content + "\nhttps://ohishi-izumi-suki.herokuapp.com")
+      console.log(`「${content}」は${content.length}文字(${this.countBytes(content)}bytes)です`)
     },
   },
 }

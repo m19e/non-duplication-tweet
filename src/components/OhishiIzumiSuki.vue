@@ -36,6 +36,9 @@ export default {
       result += text[0] + this.generateNBSP(this.randomRange(0, 20))
       return this.insertNBSP(text.slice(1), result)
     },
+    countBytes(text) {
+      return encodeURIComponent(text).replace(/%../g,"x").length
+    },
     setUrl(text) {
       this.url = "https://twitter.com/intent/tweet?text=" + encodeURI(this.insertNBSP(text) + "\nhttps://ohishi-izumi-suki.herokuapp.com")
     },

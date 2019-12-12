@@ -27,20 +27,20 @@ export default {
     randomRange(start, end) {
       return Math.round(Math.random() * (end - start)) + start
     },
-    generateNBSP(width, result = '') {
+    generateZWSP(width, result = '') {
       if (!width) return result
-      return this.generateNBSP(--width, result += '\u200B')
+      return this.generateZWSP(--width, result += '\u200B')
     },
-    insertNBSP(text, result = '') {
+    insertZWSP(text, result = '') {
       if (!text) return result
-      result += text[0] + this.generateNBSP(this.randomRange(0, 20))
-      return this.insertNBSP(text.slice(1), result)
+      result += text[0] + this.generateZWSP(this.randomRange(0, 20))
+      return this.insertZWSP(text.slice(1), result)
     },
     countBytes(text) {
       return encodeURIComponent(text).replace(/%../g,"x").length
     },
     setUrl(text) {
-      let content = this.insertNBSP(text)
+      let content = this.insertZWSP(text)
       this.url = "https://twitter.com/intent/tweet?text=" + encodeURI(content + "\nhttps://ohishi-izumi-suki.herokuapp.com")
       console.log(`「${content}」は${content.length}文字(${this.countBytes(content)}bytes)です`)
     },

@@ -9,43 +9,43 @@
 
 <script>
 export default {
-  name: 'OhishiIzumiSuki',
+  name: "OhishiIzumiSuki",
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
-      url: ''
-    }
+      url: "",
+    };
   },
   mounted() {
-    this.$nextTick( function() {
-      this.setUrl(this.msg)
-    })
+    this.$nextTick(function() {
+      this.setUrl(this.msg);
+    });
   },
   methods: {
     randomRange(start, end) {
-      return Math.round(Math.random() * (end - start)) + start
+      return Math.round(Math.random() * (end - start)) + start;
     },
-    generateZWSP(width, result = '') {
-      if (!width) return result
-      return this.generateZWSP(--width, result += '\u200B')
+    generateZWSP(width, result = "") {
+      if (!width) return result;
+      return this.generateZWSP(--width, (result += "\u200B"));
     },
-    insertZWSP(text, result = '') {
-      if (!text) return result
-      result += text[0] + this.generateZWSP(this.randomRange(0, 20))
-      return this.insertZWSP(text.slice(1), result)
+    insertZWSP(text, result = "") {
+      if (!text) return result;
+      result += text[0] + this.generateZWSP(this.randomRange(0, 20));
+      return this.insertZWSP(text.slice(1), result);
     },
     countBytes(text) {
-      return encodeURIComponent(text).replace(/%../g,"x").length
+      return encodeURIComponent(text).replace(/%../g, "x").length;
     },
     setUrl(text) {
-      let content = this.insertZWSP(text)
-      this.url = "https://twitter.com/intent/tweet?text=" + encodeURI(content + "\nhttps://ohishi-izumi-suki.herokuapp.com")
-      console.log(`「${content}」は${content.length}文字(${this.countBytes(content)}bytes)です`)
+      let content = this.insertZWSP(text);
+      this.url = "https://twitter.com/intent/tweet?text=" + encodeURI(content + "\nhttps://ohishi-izumi-suki.herokuapp.com");
+      console.log(`「${content}」は${content.length}文字(${this.countBytes(content)}bytes)です`);
     },
   },
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

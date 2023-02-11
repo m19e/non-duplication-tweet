@@ -30,3 +30,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## License
+
+[MIT](https://github.com/m19e/non-duplication-tweet/blob/master/LICENSE)

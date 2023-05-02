@@ -11,4 +11,4 @@
 
 ## License
 
-[MIT](https://github.com/m19e/non-duplication-tweet/blob/master/LICENSE)
+[MIT](./LICENSE)
